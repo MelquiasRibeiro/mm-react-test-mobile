@@ -2,7 +2,7 @@ import styled from "styled-components/native";
 
 export const Wrapper = styled.SafeAreaView`
     display: flex;
-    flex: 1;
+    flex: 2;
     flex-direction: column;
     background: #23262b;
 `;
@@ -14,21 +14,26 @@ export const Container = styled.ScrollView.attrs(() => ({
         alignItems: "center",
         paddingLeft: 16,
     },
-}))`
-    margin: 16px;
-`;
+}))``;
 
 export const Title = styled.Text`
-    margin: 8px 8px;
+    margin: 0 16px;
     font-weight: bold;
     font-size: 16px;
-    line-height: 16px;
     color: #60d761;
 `;
-export const PlaylistContainer = styled.View``;
-export const Thumb = styled.Image`
-    height: 350px;
-    width: 350px;
+export const PlaylistContainer = styled.View`
+    margin: 0 16px;
 `;
-export const PlaylistName = styled.Text``;
-export const PlaylistDescription = styled.Text``;
+export const Thumb = styled.Image`
+    height: 250px;
+    width: 250px;
+`;
+export const PlaylistName = styled.Text`
+    font-size: 16px;
+    color: #ffffff;
+`;
+export const PlaylistDescription = styled.Text`
+    font-size: 14px;
+    color: #c4c4c4;
+`;

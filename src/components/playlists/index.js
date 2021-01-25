@@ -1,4 +1,5 @@
 import React from "react";
+import { ActivityIndicator } from "react-native";
 import {
     Wrapper,
     Container,
@@ -9,22 +10,29 @@ import {
     PlaylistDescription,
 } from "./styles";
 
-const playlists = () => (
+const Playlists = ({ playlists, loading }) => (
     <Wrapper>
         <Title>Playlists</Title>
-        <Container>
-            <PlaylistContainer>
-                <Thumb
-                    source={{
-                        uri:
-                            "https://i.scdn.co/image/ab67706f00000003ec69f78942a99131ab104df5",
-                    }}
-                />
-                <PlaylistName>Name</PlaylistName>
-                <PlaylistDescription>description</PlaylistDescription>
-            </PlaylistContainer>
-        </Container>
+        {loading ? (
+            <ActivityIndicator size="large" color="#FaFaFA" />
+        ) : (
+            <Container>
+                {playlists.map((playlist) => (
+                    <PlaylistContainer key={playlist.id}>
+                        <Thumb
+                            source={{
+                                uri: playlist.images[0].url,
+                            }}
+                        />
+                        <PlaylistName>{playlist.name}</PlaylistName>
+                        <PlaylistDescription>
+                            {playlist.description}
+                        </PlaylistDescription>
+                    </PlaylistContainer>
+                ))}
+            </Container>
+        )}
     </Wrapper>
 );
 
-export default playlists;
+export default Playlists;
